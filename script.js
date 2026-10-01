@@ -6,14 +6,26 @@
     var text = el.textContent;
     el.setAttribute("aria-label", text.trim());
     el.textContent = "";
-    Array.from(text).forEach(function (ch, i) {
-      var span = document.createElement("span");
-      span.className = "glyph";
-      span.setAttribute("aria-hidden", "true");
-      span.textContent = ch === " " ? "\u00a0" : ch;
-      span.style.setProperty("--r", tilt[i % tilt.length] + "deg");
-      span.style.setProperty("--y", rise[i % rise.length] + "em");
-      el.appendChild(span);
+    var index = 0;
+    text.split(/(\s+)/).forEach(function (part) {
+      if (part === "") return;
+      if (/^\s+$/.test(part)) {
+        el.appendChild(document.createTextNode(" "));
+        return;
+      }
+      var word = document.createElement("span");
+      word.className = "word";
+      Array.from(part).forEach(function (ch) {
+        var span = document.createElement("span");
+        span.className = "glyph";
+        span.setAttribute("aria-hidden", "true");
+        span.textContent = ch;
+        span.style.setProperty("--r", tilt[index % tilt.length] + "deg");
+        span.style.setProperty("--y", rise[index % rise.length] + "em");
+        word.appendChild(span);
+        index += 1;
+      });
+      el.appendChild(word);
     });
   });
 

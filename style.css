@@ -38,6 +38,11 @@ button {
   display: none !important;
 }
 
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .glyph {
   display: inline-block;
   transform: rotate(var(--r, 0deg)) translateY(var(--y, 0));
@@ -134,10 +139,12 @@ h1 {
 }
 
 .prompt {
-  max-width: 16em;
+  max-width: min(16em, 100%);
   margin: 4vh 0 0;
   font-size: clamp(1.7rem, 4.6vw, 3.7rem);
-  line-height: 1.05;
+  line-height: 1.2;
+  overflow-wrap: normal;
+  word-break: keep-all;
   transform: rotate(0.6deg);
 }
 
