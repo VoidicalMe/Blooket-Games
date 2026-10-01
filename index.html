@@ -7,25 +7,40 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="lives" role="img" aria-label="3 lives">
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/>
-    </svg>
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/>
-    </svg>
-    <svg viewBox="0 0 32 32" aria-hidden="true">
-      <path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/>
-    </svg>
-  </div>
-
-  <main class="screen">
+  <section class="title-screen" id="title">
     <h1>
-      <span class="the">The</span>
-      <span class="impossible">Impossible</span>
-      <span class="quiz">Quiz</span>
+      <span class="line the" data-ink>The</span>
+      <span class="line impossible" data-ink>IMPOSSIBLE</span>
+      <span class="line quiz" data-ink>QUIZ</span>
     </h1>
-    <button type="button" class="begin">Click to begin</button>
-  </main>
+    <button type="button" class="begin">
+      <span data-ink>Click to begin</span>
+    </button>
+  </section>
+
+  <section class="play" id="play" hidden>
+    <p class="q-label" data-ink>Question 1</p>
+    <p class="prompt" data-ink>What has hands but can't clap?</p>
+    <div class="answers">
+      <button type="button" class="choice" data-correct="true"><span data-ink>A clock</span></button>
+      <button type="button" class="choice"><span data-ink>A glove</span></button>
+      <button type="button" class="choice"><span data-ink>A statue</span></button>
+      <button type="button" class="choice"><span data-ink>A chair</span></button>
+    </div>
+    <footer class="dock">
+      <div class="lives" role="img" aria-label="3 lives">
+        <svg class="life" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/></svg>
+        <svg class="life" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/></svg>
+        <svg class="life" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 28C16 28 4 20.2 4 12.4 4 8.4 6.8 6 10.2 6c2.1 0 3.6 1 4.2 2.4C15 7 16.5 6 18.6 6 22 6 24.8 8.4 24.8 12.4 24.8 20.2 16 28 16 28z"/></svg>
+      </div>
+      <button type="button" class="skip"><span data-ink>Skip</span></button>
+    </footer>
+  </section>
+
+  <section class="correct-screen" id="correct" hidden>
+    <p class="correct-word" data-ink>Correct</p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
